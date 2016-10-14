@@ -2,13 +2,15 @@
 
 --CREATE USER has_many_user;
 
-CREATE DATABASE has_many_blogs OWNER has_many_user;
+--DROP DATABASE IF EXISTS has_many_blogs;
 
-\c has_many_blogs
+--CREATE DATABASE has_many_blogs OWNER has_many_user;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS posts;
-DROP TABLE IF EXISTS comments;
+--\c has_many_blogs
+
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS posts CASCADE;
+DROP TABLE IF EXISTS comments CASCADE;
 
 CREATE TABLE users (
   u_id serial PRIMARY KEY,
@@ -41,3 +43,5 @@ CREATE TABLE comments (
 --\d+ users
 
 \i scripts/blog_data.sql
+
+\i joins.sql
